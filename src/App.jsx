@@ -1,10 +1,13 @@
 import React from 'react';
-
+import Board from './Components/Board';
+import './Components/styles/root.style.scss';
 const App = () => {
   return (
     <>
-      <h1>Welcome to React Vite Micro App!</h1>
-      <p>chalo tictactoe banaye</p>
+      <div className="app">
+        <h1>TIC TAC TOE</h1>
+        <Board />
+      </div>
     </>
   );
 };
