@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Square from './square';
+import Square from './Square';
 
 function Board() {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -12,12 +12,12 @@ function Board() {
     }
 
     setBoard(prev => {
-      return prev.map((square, pos) => {
+      return prev.map((Square, pos) => {
         if (pos === position) {
           return isXNext ? 'X' : 'O';
         }
 
-        return square;
+        return Square;
       });
     });
     setIsXNext(prev => !prev);
