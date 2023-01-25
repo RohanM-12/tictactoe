@@ -11,6 +11,7 @@ function History({ history, moveTo, currentMove }) {
                 style={{
                   fontWeight: move === currentMove ? 'bold' : 'normal',
                   color: 'white',
+                  fontFamily: 'cursive',
                 }}
                 type="button"
                 onClick={() => {

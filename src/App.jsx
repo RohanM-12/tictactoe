@@ -66,7 +66,7 @@ const App = () => {
         <button className="newGameBtn" type="button" onClick={onNewGame}>
           Start New Game
         </button>
-        <h2>Current Game History</h2>
+        <h2 className="heading">Current Game History</h2>
         <History history={history} moveTo={moveTo} currentMove={currentMove} />
         <div id="background-wrap">
           <div class="bubble x1"></div>
@@ -79,6 +79,17 @@ const App = () => {
           <div class="bubble x8"></div>
           <div class="bubble x9"></div>
           <div class="bubble x10"></div>
+        </div>
+
+        <div
+          style={{
+            color: 'white',
+            fontFamily: 'cursive',
+            borderBottom: '10px',
+          }}
+        >
+          Report an issue -rohanmali.2002@gmail.com
+          <link rel="rohanmali.2002@gmail.com"></link>
         </div>
       </div>
     </>
