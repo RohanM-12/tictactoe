@@ -10,6 +10,7 @@ function History({ history, moveTo, currentMove }) {
               <button
                 style={{
                   fontWeight: move === currentMove ? 'bold' : 'normal',
+                  color: 'white',
                 }}
                 type="button"
                 onClick={() => {
