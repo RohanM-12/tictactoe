@@ -4,42 +4,57 @@ import Square from './Components/Square';
 import './Components/styles/root.style.scss';
 import { calculateWinner } from './helper';
 
+import History from './Components/History';
+import StatusMessage from './Components/StatusMessage';
+
 const App = () => {
-  const [board, setBoard] = useState(Array(9).fill(null));
-  const [isXNext, setIsXNext] = useState(false);
+  const [history, setHistory] = useState([
+    { board: Array(9).fill(null), isXNext: true },
+  ]);
 
-  const winner = calculateWinner(board);
+  const [currentMove, setCurrentMove] = useState(0);
 
-  const message = winner
-    ? `Winner is : ${winner}`
-    : `Next player is : ${isXNext ? 'X' : 'O'}`;
+  const current = history[currentMove];
+
+  // const [isXNext, setIsXNext] = useState(false);
+
+  const winner = calculateWinner(current.board);
 
   const handleSquareClick = position => {
-    if (board[position]) {
+    if (current.board[position]) {
       return;
     }
     if (winner) {
       return;
     }
-    setBoard(prev => {
-      return prev.map((Square, pos) => {
+    setHistory(prev => {
+      const last = prev[prev.length - 1];
+
+      const newBoard = last.board.map((Square, pos) => {
         if (pos === position) {
-          return isXNext ? 'X' : 'O';
+          return last.isXNext ? 'X' : 'O';
         }
 
         return Square;
       });
+      return prev.concat({ board: newBoard, isXNext: !last.isXNext });
     });
-    setIsXNext(prev => !prev);
+    // setIsXNext(prev => !prev);
+    setCurrentMove(prev => prev + 1);
+  };
+
+  const moveTo = move => {
+    setCurrentMove(move);
   };
 
   return (
     <>
       <div className="app">
         <h1 className="heading">TIC TAC TOE</h1>
-        <h2 className="heading">{message}</h2>
-        <Board board={board} handleSquareClick={handleSquareClick} />
-
+        {/* <h2 className="heading">{message}</h2> */}
+        <StatusMessage winner={winner} current={current} />
+        <Board board={current.board} handleSquareClick={handleSquareClick} />
+        <History history={history} moveTo={moveTo} currentMove={currentMove} />
         <div id="background-wrap">
           <div class="bubble x1"></div>
           <div class="bubble x2"></div>
