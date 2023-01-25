@@ -6,6 +6,7 @@ const Square = ({ value, onClick, isWinningSquare }) => {
       style={{
         color: isWinningSquare ? 'white' : 'black',
         fontWeight: isWinningSquare ? 'bolder' : 'normal',
+
         fontFamily: 'cursive',
       }}
       type="button"
