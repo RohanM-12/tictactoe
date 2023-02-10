@@ -14,6 +14,7 @@ const Square = ({ value, onClick, isWinningSquare }) => {
       onClick={onClick}
     >
       {value}
+      <button></button>
     </button>
   );
 };
