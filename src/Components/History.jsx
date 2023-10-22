@@ -10,7 +10,7 @@ function History({ history, moveTo, currentMove }) {
               <button
                 style={{
                   fontWeight: move === currentMove ? 'bold' : 'normal',
-                  color: 'white',
+                  color: 'black',
                   fontFamily: 'cursive',
                 }}
                 type="button"
