@@ -1,10 +1,13 @@
 {
   "name": "tictactoe",
+  "homepage": "https://RohanM-12.github.io/tictactoe",
   "version": "0.1.0",
   "description": "",
   "license": "MIT",
   "scripts": {
     "start": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "preview": "vite preview",
     "build": "npm run clear && vite build",
     "lint": "eslint src/**/*.js",
@@ -13,6 +16,7 @@
     "clear": "rimraf dist .parcel-cache"
   },
   "dependencies": {
+    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
